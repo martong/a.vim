@@ -478,7 +478,7 @@ function! AlternateFile(splitWindow, ...)
         if (bestScore == 0 && g:alternateNoDefaultAlternate == 1)
            echo "No existing alternate available"
         else
-           call <SID>FindOrCreateBuffer(bestFile, a:splitWindow, 1)
+           call <SID>FindOrCreateBuffer(bestFile, a:splitWindow, 0)
            let b:AlternateAllFiles = allfiles
         endif
      else
