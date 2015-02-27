@@ -478,7 +478,7 @@ function! AlternateFile(splitWindow, ...)
         if (bestScore == 0 && g:alternateNoDefaultAlternate == 1)
            echo "No existing alternate available"
         else
-           call <SID>FindOrCreateBuffer(bestFile, a:splitWindow, 0)
+           call <SID>FindOrCreateBuffer(bestFile, a:splitWindow, 1)
            let b:AlternateAllFiles = allfiles
         endif
      else
@@ -778,7 +778,7 @@ function! <SID>FindOrCreateBuffer(fileName, doSplit, findSimilar)
      endfor
      " switch the the tab containing the buffer
      if (tabNr != -1)
-        execute "tabn ".tabNr
+        "execute "tabn ".tabNr
      endif
 
      " Buffer was already open......check to see if it is in a window
@@ -800,7 +800,7 @@ function! <SID>FindOrCreateBuffer(fileName, doSplit, findSimilar)
         endif
      else
         " Buffer is already in a window so switch to the window
-        execute bufWindow."wincmd w"
+        "execute bufWindow."wincmd w"
         if (bufWindow != winnr()) 
            " something wierd happened...open the buffer
            let v:errmsg=""
